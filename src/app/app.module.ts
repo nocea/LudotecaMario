@@ -8,12 +8,14 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { RegistroUsuarioComponent } from './vistas/registro-usuario/registro-usuario.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { BienvenidaComponent } from './vistas/bienvenida/bienvenida.component';
+import { ListaUsuariosComponent } from './vistas/lista-usuarios/lista-usuarios.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistroUsuarioComponent,
-    BienvenidaComponent
+    BienvenidaComponent,
+    ListaUsuariosComponent
   ],
   imports: [
     BrowserModule,

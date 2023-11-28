@@ -1,0 +1,22 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Usuarios</h2>
+    <table class="table table-bordered table-hover">
+      <thead class="text-center">
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Borrar</th>
+          <th>Actualizar</th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr *ngFor="let usuario of usuarios;let i = index">
+          <td>{{i}}</td>
+          <td>{{usuario.nombre}}</td>
+          <td>{{usuario.email}}</td>
+          <td><button class="btn btn-outline-danger" (click)="delUsuario(usuario)">Borrar</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
