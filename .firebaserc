@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "ludoteca-75689"
+  },
+  "targets": {
+    "ludoteca-75689": {
+      "hosting": {
+        "LudotecaMario": [
+          "ludoteca-75689"
+        ]
+      }
+    }
+  }
+}
