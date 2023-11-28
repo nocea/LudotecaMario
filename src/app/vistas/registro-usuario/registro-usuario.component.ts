@@ -26,6 +26,7 @@ export class RegistroUsuarioComponent implements OnInit{
     console.log(this.formulario.value)
     const response = await this.usuarioService.addUsuario(this.formulario.value);
     console.log(response);
+    this.formulario.reset();
   }
 }
 
