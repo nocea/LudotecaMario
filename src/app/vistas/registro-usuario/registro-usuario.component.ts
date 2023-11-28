@@ -8,6 +8,8 @@ import { Usuario } from 'src/app/modelos/usuario';
   styleUrls: ['./registro-usuario.component.css']
 })
 export class RegistroUsuarioComponent implements OnInit{
+  mensaje:string="Pulsa para registrar el usuario";
+  creado:boolean=false;
   formulario: FormGroup;
   constructor(private usuarioService:UsuarioService){
     this.formulario=new FormGroup({
@@ -21,12 +23,13 @@ export class RegistroUsuarioComponent implements OnInit{
     email:new FormControl()
   });}
   ngOnInit(): void {
-  }
-  async onSubmit() {
+     }
+   onSubmit() {
     console.log(this.formulario.value)
-    const response = await this.usuarioService.addUsuario(this.formulario.value);
-    console.log(response);
+    this.usuarioService.addUsuario(this.formulario.value);
     this.formulario.reset();
+    this.creado=true;
+    this.mensaje="Se ha registrado un usuario";
   }
 }
 

@@ -7,11 +7,13 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { RegistroUsuarioComponent } from './vistas/registro-usuario/registro-usuario.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { BienvenidaComponent } from './vistas/bienvenida/bienvenida.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegistroUsuarioComponent
+    RegistroUsuarioComponent,
+    BienvenidaComponent
   ],
   imports: [
     BrowserModule,
