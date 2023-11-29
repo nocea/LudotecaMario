@@ -33,7 +33,7 @@ export class EditarUsuarioComponent implements OnInit{
 
   ngOnInit() {
     this.id = this.ruta.snapshot.paramMap.get('id')!;
-    this.usuarioService.getDocument(this.id).subscribe((usuario: Usuario) => {
+    this.usuarioService.getUsuario(this.id).subscribe((usuario: Usuario) => {
       this.usuario = usuario;
     });
   }
@@ -42,7 +42,7 @@ export class EditarUsuarioComponent implements OnInit{
   }
   updateUser(){
     this.usuarioService.coleccion = 'usuarios';
-    this.usuarioService.updateDocument(this.usuario)
+    this.usuarioService.updateUsuario(this.usuario)
       .then(() => console.log('Usuario actualizado'))
       .catch((error) => console.error(error));
   }

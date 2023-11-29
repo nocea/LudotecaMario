@@ -22,12 +22,12 @@ export class UsuarioService {
     const usuarioRef = doc(this.firestore, `usuarios/${usuario.id}`);
     return deleteDoc(usuarioRef);
   }
-  updateDocument(element: any) {
-    console.log(element);
-    const elementDocRef = doc(this.firestore, `usuarios/${element.id}`);
-    return setDoc(elementDocRef, element);
+  updateUsuario(usuario: Usuario) {
+    console.log(usuario);
+    const elementDocRef = doc(this.firestore, `usuarios/${usuario.id}`);
+    return setDoc(elementDocRef, usuario);
   }
-  getDocument(id: string) {
+  getUsuario(id: string) {
     const elementDocRef = doc(this.firestore, `usuarios/${id}`);
     return docData(elementDocRef, { idField: 'id' }) as Observable<any>;
   }
