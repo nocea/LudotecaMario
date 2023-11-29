@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup,ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, MaxValidator, Validators,} from '@angular/forms';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
-import { Usuario } from 'src/app/modelos/usuario';
 @Component({
   selector: 'app-registro-usuario',
   templateUrl: './registro-usuario.component.html',
@@ -13,14 +12,14 @@ export class RegistroUsuarioComponent implements OnInit{
   formulario: FormGroup;
   constructor(private usuarioService:UsuarioService){
     this.formulario=new FormGroup({
-    nombre:new FormControl(),
+    nombre:new FormControl((''),Validators.required),
     dni:new FormControl(),
     direccion:new FormControl(),
     ciudad:new FormControl(),
     cp:new FormControl(),
     provincia:new FormControl(),
     telefono:new FormControl(),
-    email:new FormControl()
+    email:new FormControl('',[Validators.required,Validators.email])
   });}
   ngOnInit(): void {
      }

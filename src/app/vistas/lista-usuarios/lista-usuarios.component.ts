@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
 import { Usuario } from 'src/app/modelos/usuario';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-lista-usuarios',
@@ -17,6 +18,5 @@ export class ListaUsuariosComponent implements OnInit{
   }
    delUsuario(usuario: Usuario) {
     this.usuarioService.delUsuario(usuario);
-    
   }
 }

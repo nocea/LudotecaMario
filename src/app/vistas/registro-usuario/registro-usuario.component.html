@@ -1,12 +1,12 @@
 <div class="container mt-4">
     <div class="row">
     <div class="col-md-6 offset-md-3">
-<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+<form [formGroup]="formulario" (submit)="onSubmit()">
     <div class="mb-2">
+    <span class="required">*</span>
     <input type="text" class="form-control form-control-sm" formControlName="nombre" placeholder="Nombre">
     </div>
     <div class="mb-2">
-    
     <input type="text" class="form-control form-control-sm" formControlName="dni" placeholder="DNI">
     </div>
     <div class="mb-2">
@@ -25,9 +25,10 @@
     <input type="text" class="form-control form-control-sm" formControlName="telefono" placeholder="Teléfono">
     </div>
     <div class="mb-2">
+    <span class="required">*</span>
     <input type="email" class="form-control form-control-sm" formControlName="email" placeholder="Correo Electrónico">
     </div>
-    <button type="submit" class="btn btn-primary">Enviar</button><div class="inline-div"[style.color]="creado?'green':'red'">{{mensaje}}</div>
+    <button type="submit" class="btn btn-primary" [disabled]="!formulario.valid">Enviar</button><div class="inline-div"[style.color]="creado?'green':'red'">{{mensaje}}</div>
 </form>
 </div>
 </div>

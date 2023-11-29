@@ -7,7 +7,7 @@
           <th>Nombre</th>
           <th>Email</th>
           <th>Borrar</th>
-          <th>Actualizar</th>
+          <th>Editar</th>
         </tr>
       </thead>
       <tbody class="text-center">
@@ -16,7 +16,9 @@
           <td>{{usuario.nombre}}</td>
           <td>{{usuario.email}}</td>
           <td><button class="btn btn-outline-danger" (click)="delUsuario(usuario)">Borrar</button></td>
+          <td><button class="btn btn-outline-success" [routerLink]="['/editarUsu', usuario.id]">Editar</button></td>
         </tr>
       </tbody>
     </table>
   </div>
+  <router-outlet></router-outlet>

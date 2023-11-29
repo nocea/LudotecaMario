@@ -9,13 +9,15 @@ import { RegistroUsuarioComponent } from './vistas/registro-usuario/registro-usu
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { BienvenidaComponent } from './vistas/bienvenida/bienvenida.component';
 import { ListaUsuariosComponent } from './vistas/lista-usuarios/lista-usuarios.component';
+import { EditarUsuarioComponent } from './vistas/editar-usuario/editar-usuario.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistroUsuarioComponent,
     BienvenidaComponent,
-    ListaUsuariosComponent
+    ListaUsuariosComponent,
+    EditarUsuarioComponent
   ],
   imports: [
     BrowserModule,
