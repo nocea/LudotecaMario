@@ -1,49 +1,59 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from 'src/app/modelos/usuario';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
 import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-editar-usuario',
   templateUrl: './editar-usuario.component.html',
   styleUrls: ['./editar-usuario.component.css']
 })
-export class EditarUsuarioComponent implements OnInit{
-  usuario: Usuario;
+export class EditarUsuarioComponent implements OnInit {
+  usuarioForm: FormGroup;
   id: string = '';
+
   constructor(
+    private fb: FormBuilder,
     private usuarioService: UsuarioService,
     private ruta: ActivatedRoute,
-    private ruter: Router,
+    private router: Router,
     private location: Location
-  ){
-    this.usuario= {
-      id: '',
-      nombre: '',
-      telefono: '',
-      email: '',
-      dni: '',
-      direccion: '',
-      ciudad: '',
-      provincia: '',
-      cp: ''
-    };
+  ) {
+    this.usuarioForm = this.fb.group({
+      id: [''], 
+      nombre: ['', Validators.required],
+      dni:[''],
+      direccion:[''],
+      ciudad:[''],
+      cp:[''],
+      provincia:[''],
+      telefono:[''],
+      email: ['']
+    });
   }
 
   ngOnInit() {
     this.id = this.ruta.snapshot.paramMap.get('id')!;
     this.usuarioService.getUsuario(this.id).subscribe((usuario: Usuario) => {
-      this.usuario = usuario;
+      this.usuarioForm.patchValue(usuario);
     });
   }
+
   onSubmit() {
-    this.updateUser();
+   
+      this.updateUser();
   }
-  updateUser(){
+
+  updateUser() {
     this.usuarioService.coleccion = 'usuarios';
-    this.usuarioService.updateUsuario(this.usuario)
-      .then(() => console.log('Usuario actualizado'))
+    const updatedUsuario: Usuario = {...this.usuarioForm.value };
+    
+    this.usuarioService.updateUsuario(updatedUsuario)
+      .then(() => {
+        console.log('Usuario actualizado');
+      })
       .catch((error) => console.error(error));
   }
 }
